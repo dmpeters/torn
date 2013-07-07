@@ -3,7 +3,7 @@ Provides a clean method for importing default settings and
 user override settings.
 """
 
-from tornado.web import _O
+from tornado.util import ObjectDict
 
 def load_settings(user_settings):
     """ Parse user settings, imports local settings, etc. """
@@ -13,5 +13,5 @@ def load_settings(user_settings):
     except ImportError:
         pass
 
-    settings = _O(user_settings)
+    settings = ObjectDict(user_settings)
     return settings
